@@ -123,7 +123,6 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
   });
 
 });
-console.log("adobeDataLayer initialized:", window.adobeDataLayer);
 console.log("===== add to cart =====");
 (function () {
 
