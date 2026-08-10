@@ -70,8 +70,8 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
   event.preventDefault();
 
   console.log("Purchase event triggered");
-
-  window.adobeDataLayer.push({
+window.adobeDataLayer = window.adobeDataLayer || [];
+  adobeDataLayer.push({
     "event": "purchase",
     _deloitteemeanorthpartnersand: {
   customer:{
@@ -121,7 +121,7 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
 
   });
     console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
-    alert("testing purchase")
+    alert("testing purchase2")
    alert(JSON.stringify(window.adobeDataLayer, null, 2));
 });
 
