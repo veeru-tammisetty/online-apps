@@ -22,7 +22,7 @@ adobeDataLayer.push({
 "event": "pageLoad",
 _deloitteemeanorthpartnersand: {
       page: {
-        pageType: page?.pageType || "",
+        pageType: "",
         pageIndustry: page?.pageIndustry || "",
         pageBigBetTopic: page?.pageBigBetTopic || "",
         careerSectionFlag: page?.careerSectionFlag ?? false,
@@ -84,7 +84,7 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
       "postcode":document.querySelector('#checkout-form input[name="postcode"]')?.value?.trim() || "",
   },
       page: {
-        pageType: page?.pageType || "",
+        pageType: "",
         pageIndustry: page?.pageIndustry || "",
         pageBigBetTopic: page?.pageBigBetTopic || "",
         careerSectionFlag: page?.careerSectionFlag ?? false,
