@@ -123,3 +123,29 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
   });
 
 });
+
+(function () {
+  
+  function productItems(items) {
+    return (items || []).map(function (p) {
+      return {
+        SKU: p.productId || p.id,
+        name: p.productName || p.name,
+        priceTotal: Number(p.priceTotal != null ? p.priceTotal : p.price || 0),
+        quantity: Number(p.quantity || 1)
+      };
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("[data-track]");
+    if (!link) return;
+
+    pushToDataLayer({
+      event: "linkClick",
+      name: link.dataset.track,
+      type: "other",
+      url: link.href || location.href
+    });
+  });
+})();
