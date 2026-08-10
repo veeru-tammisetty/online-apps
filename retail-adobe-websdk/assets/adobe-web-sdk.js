@@ -115,7 +115,7 @@ adobeDataLayer.push({
             "name": document.title ||
                 window.location.pathname.split("/").filter(Boolean).pop() ||
                 "home",
-            "server": document.domain,
+            "server": "test1",
             "siteSection": window.location.pathname.split("/").filter(Boolean)[0] || "home",
             "isErrorPage": document.title.toLowerCase().includes("404") || false,
             "isHomePage": window.location.pathname === "/" || window.location.pathname === "",
