@@ -4,6 +4,7 @@
  * Retail Application
  */
 
+
 /*
  * ============================================================
  * Adobe configuration
@@ -19,6 +20,34 @@ window.NOVA_ADOBE_CONFIG = {
 
 /*
  * ============================================================
+ * Adobe Web SDK base code
+ *
+ * This creates window.alloy immediately and queues commands
+ * until the Adobe Web SDK library has finished loading.
+ * ============================================================
+ */
+
+!function(n,o){
+  o.forEach(function(o){
+    n[o] || (
+      n.__alloyNS = n.__alloyNS || [],
+      n.__alloyNS.push(o),
+      n[o] = function(){
+        var u = arguments;
+        return new Promise(function(i,l){
+          n.setTimeout(function(){
+            n[o].q.push([i,l,u]);
+          });
+        });
+      },
+      n[o].q = []
+    );
+  });
+}(window, ["alloy"]);
+
+
+/*
+ * ============================================================
  * Load Adobe Web SDK
  * ============================================================
  */
@@ -27,43 +56,21 @@ window.NOVA_ADOBE_CONFIG = {
 
   var script = document.createElement("script");
 
-  /*
-   * Adobe Alloy CDN
-   */
-  script.src = "https://cdn1.adoberesources.net/alloy/2.25.0/alloy.min.js";
+  script.src =
+    "https://cdn1.adoberesources.net/alloy/2.25.0/alloy.min.js";
 
   script.async = true;
 
   script.onload = function () {
 
-    console.log("Adobe Web SDK loaded.");
-
-    /*
-     * Configure Alloy
-     */
-    alloy("configure", {
-
-      orgId: window.NOVA_ADOBE_CONFIG.orgId,
-
-      datastreamId: window.NOVA_ADOBE_CONFIG.datastreamId,
-
-      edgeDomain: window.NOVA_ADOBE_CONFIG.edgeDomain
-
-    });
-
-    console.log("Adobe Web SDK configured.");
-
-    /*
-     * Send initial page-view event
-     */
-    sendPageView();
+    console.log("Adobe Web SDK library loaded.");
 
   };
 
   script.onerror = function () {
 
     console.error(
-      "Unable to load Adobe Web SDK."
+      "ERROR: Adobe Web SDK library failed to load."
     );
 
   };
@@ -75,16 +82,52 @@ window.NOVA_ADOBE_CONFIG = {
 
 /*
  * ============================================================
- * Page View
+ * Configure Adobe Web SDK
+ *
+ * Because the base code creates alloy() immediately,
+ * this command can safely be queued before the library
+ * finishes downloading.
  * ============================================================
  */
 
-function sendPageView() {
+alloy("configure", {
+
+  orgId: window.NOVA_ADOBE_CONFIG.orgId,
+
+  datastreamId: window.NOVA_ADOBE_CONFIG.datastreamId,
+
+  edgeDomain: window.NOVA_ADOBE_CONFIG.edgeDomain
+
+})
+.then(function () {
+
+  console.log(
+    "Adobe Web SDK configured successfully."
+  );
+
+})
+.catch(function (error) {
+
+  console.error(
+    "Adobe Web SDK configuration failed:",
+    error
+  );
+
+});
+
+
+/*
+ * ============================================================
+ * Test function
+ * ============================================================
+ */
+
+window.testAdobeWebSDK = function () {
 
   if (typeof alloy === "undefined") {
 
     console.error(
-      "Adobe Web SDK is not available."
+      "Adobe Web SDK / alloy is not available."
     );
 
     return;
@@ -115,7 +158,7 @@ function sendPageView() {
   .then(function (result) {
 
     console.log(
-      "Page view event sent successfully.",
+      "Adobe page-view event sent successfully.",
       result
     );
 
@@ -123,237 +166,11 @@ function sendPageView() {
   .catch(function (error) {
 
     console.error(
-      "Page view event failed.",
+      "Adobe page-view event failed:",
       error
     );
 
   });
 
-}
+};
 
-
-/*
- * ============================================================
- * Product View
- * ============================================================
- */
-
-function viewProduct(product) {
-
-  if (typeof alloy === "undefined") {
-
-    console.error(
-      "Adobe Web SDK is not available."
-    );
-
-    return;
-
-  }
-
-  alloy("sendEvent", {
-
-    xdm: {
-
-      eventType: "commerce.productViews",
-
-      productListItems: [
-
-        {
-
-          SKU: product.sku,
-
-          name: product.name,
-
-          priceTotal: product.price,
-
-          quantity: 1
-
-        }
-
-      ]
-
-    }
-
-  })
-  .then(function (result) {
-
-    console.log(
-      "Product view event sent.",
-      result
-    );
-
-  })
-  .catch(function (error) {
-
-    console.error(
-      "Product view event failed.",
-      error
-    );
-
-  });
-
-}
-
-
-/*
- * ============================================================
- * Add To Cart
- * ============================================================
- */
-
-function addToCart(product) {
-
-  if (typeof alloy === "undefined") {
-
-    console.error(
-      "Adobe Web SDK is not available."
-    );
-
-    return;
-
-  }
-
-  alloy("sendEvent", {
-
-    xdm: {
-
-      eventType: "commerce.productListAdds",
-
-      commerce: {
-
-        productListAdds: {
-
-          value: 1
-
-        }
-
-      },
-
-      productListItems: [
-
-        {
-
-          SKU: product.sku,
-
-          name: product.name,
-
-          priceTotal: product.price,
-
-          quantity: 1
-
-        }
-
-      ]
-
-    }
-
-  })
-  .then(function (result) {
-
-    console.log(
-      "Add-to-cart event sent.",
-      result
-    );
-
-  })
-  .catch(function (error) {
-
-    console.error(
-      "Add-to-cart event failed.",
-      error
-    );
-
-  });
-
-}
-
-
-/*
- * ============================================================
- * Button Events
- * ============================================================
- */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  var product1 = {
-    sku: "LAPTOP-001",
-    name: "Laptop",
-    price: 1000
-  };
-
-  var product2 = {
-    sku: "HEADPHONE-001",
-    name: "Headphones",
-    price: 200
-  };
-
-
-  var viewProductButton =
-    document.getElementById("view-product");
-
-  if (viewProductButton) {
-
-    viewProductButton.addEventListener(
-      "click",
-      function () {
-
-        viewProduct(product1);
-
-      }
-    );
-
-  }
-
-
-  var addToCartButton =
-    document.getElementById("add-to-cart");
-
-  if (addToCartButton) {
-
-    addToCartButton.addEventListener(
-      "click",
-      function () {
-
-        addToCart(product1);
-
-      }
-    );
-
-  }
-
-
-  var viewProduct2Button =
-    document.getElementById("view-product-2");
-
-  if (viewProduct2Button) {
-
-    viewProduct2Button.addEventListener(
-      "click",
-      function () {
-
-        viewProduct(product2);
-
-      }
-    );
-
-  }
-
-
-  var addToCart2Button =
-    document.getElementById("add-to-cart-2");
-
-  if (addToCart2Button) {
-
-    addToCart2Button.addEventListener(
-      "click",
-      function () {
-
-        addToCart(product2);
-
-      }
-    );
-
-  }
-
-});
