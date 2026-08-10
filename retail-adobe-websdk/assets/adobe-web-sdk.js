@@ -145,8 +145,7 @@ adobeDataLayer.push({
 "careerSectionFlag": false 
 },
 "traffic": {
-"trackingCode": ""
-"trafficSource": "",
+"trackingCode": "",
 "utm_source": "",
 "utm_medium": "",
 "utm_campaign": "",
