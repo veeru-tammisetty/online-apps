@@ -108,5 +108,6 @@ window.adobeDataLayer.push({
     },
 });
   console.log(JSON.stringify(window.adobeDataLayer, null, 2));
+  console.log("test1")
     }
 });
