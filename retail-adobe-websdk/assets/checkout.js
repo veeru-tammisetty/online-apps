@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Stop the browser from navigating away before tracking
 
         console.log("Purchase event triggered");
-        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer = [];
 
 adobeDataLayer.push({
     "event": "purchase",
