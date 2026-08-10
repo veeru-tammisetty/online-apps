@@ -133,28 +133,43 @@ window.testAdobeWebSDK = function () {
     return;
 
   }
-
-  alloy("sendEvent", {
-
-    xdm: {
-
-      eventType: "web.webpagedetails.pageViews",
-
-      web: {
-
-        webPageDetails: {
-
-          name: document.title,
-
-          URL: window.location.href
-
-        }
-
-      }
-
-    }
-
-  })
+window.adobeDataLayer = window.adobeDataLayer || [];
+  adobeDataLayer.push({
+"event": "pageLoad",
+"_genpactindia": {
+"page": {
+"pageType": "",
+"pageIndustry": "",
+"pageBigBetTopic": "",
+"careerSectionFlag": false 
+},
+"traffic": {
+"trackingCode": ""
+"trafficSource": "",
+"utm_source": "",
+"utm_medium": "",
+"utm_campaign": "",
+"utm_term": "",
+"utm_content": ""
+},
+"user": {
+"locale": ""
+}
+},
+"web": {
+"webPageDetails": {
+"URL": document.URL,
+"name": "home",
+"server": document.domain,
+"siteSection": "home",
+"isErrorPage": false,
+"isHomePage": false
+},
+"webReferrer": {
+"URL": document.referrer
+}
+}
+})
   .then(function (result) {
 
     console.log(
