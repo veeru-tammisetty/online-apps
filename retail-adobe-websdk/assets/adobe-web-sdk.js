@@ -18,11 +18,11 @@ console.log("adobeDataLayer initialized:", window.adobeDataLayer);
 console.log("Pushing to adobeDataLayer");
 
 adobeDataLayer.push({
-  event: "pageLoad",
+  "event": "pageLoad",
   _deloitteemeanorthpartnersand: {
     page: {
       pageType: "",
-      pageIndustry: "retail",
+      pageIndustry: "retail1",
       pageBigBetTopic: "Products",
       careerSectionFlag: false,
       pageLoadTime:
@@ -82,7 +82,7 @@ document
     console.log("Purchase event triggered");
     window.adobeDataLayer = [];
     adobeDataLayer.push({
-      event: "purchase",
+      "event": "purchase",
       _deloitteemeanorthpartnersand: {
         customer: {
           email:
