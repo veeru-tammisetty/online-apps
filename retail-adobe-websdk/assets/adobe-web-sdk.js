@@ -80,29 +80,6 @@ document
     event.preventDefault();
 
     console.log("Purchase event triggered");
-    const purchaseData = {
-    event: "purchase",
-
-    _deloitteemeanorthpartnersand: {
-      customer: {
-        email:
-          this.querySelector('input[name="email"]')?.value?.trim() || "",
-
-        fullName:
-          this.querySelector('input[name="name"]')?.value?.trim() || "",
-
-        address:
-          this.querySelector('input[name="address"]')?.value?.trim() || "",
-
-        city:
-          this.querySelector('input[name="city"]')?.value?.trim() || "",
-
-        postcode:
-          this.querySelector('input[name="postcode"]')?.value?.trim() || ""
-      }
-    }
-  };
-   alert(JSON.stringify(purchaseData, null, 2));
     window.adobeDataLayer = [];
     adobeDataLayer.push({
       event: "purchase",
@@ -182,9 +159,6 @@ document
         },
       },
     });
-    console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
-    alert("testing purchase5");
-    alert(JSON.stringify(window.adobeDataLayer, null, 2));
   });
 
 console.log("===== add to cart =====");
