@@ -57,7 +57,7 @@ window.NOVA_ADOBE_CONFIG = {
   var script = document.createElement("script");
 
   script.src =
-    "https://cdn1.adoberesources.net/alloy/2.25.0/alloy.min.js";
+  src="https://assets.adobedtm.com/d9fe0ea961b4/2ffc22ee7e2d/launch-0ade72df7713-development.min.js"
 
   script.async = true;
 
