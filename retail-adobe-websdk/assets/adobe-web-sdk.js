@@ -10,7 +10,23 @@
  * Adobe configuration
  * ============================================================
  */
+console.log("===== adobe-web-sdk.js STARTED =====");
 
+window.adobeDataLayer = window.adobeDataLayer || [];
+
+console.log("adobeDataLayer initialized:", window.adobeDataLayer);
+
+console.log("Pushing to adobeDataLayer");
+
+window.adobeDataLayer.push({
+  event: "pageView",
+  page: {
+    name: document.title,
+    url: window.location.href
+  }
+});
+
+console.log("adobeDataLayer after push:", window.adobeDataLayer);
 window.NOVA_ADOBE_CONFIG = {
   orgId: "1F6324765762BE0E7F000101@AdobeOrg",
   datastreamId: "7c1168d7-ea8b-46aa-a71f-ee1280e77e6b",
