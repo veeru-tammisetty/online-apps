@@ -55,9 +55,7 @@ window.adobeDataLayer.push({
     }
 });
 
-document
-    .getElementById("checkout-form")
-    ?.addEventListener("submit", function(event) {
+document.getElementById("checkout-form").onsubmit = function(e) {
         console.log("=== PURCHASE SUBMIT FIRED ===");
 
         // Stop the browser from navigating away before tracking
