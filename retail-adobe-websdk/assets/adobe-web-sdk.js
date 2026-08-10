@@ -159,6 +159,7 @@ document
         },
       },
     });
+    alert( JSON.stringify(window.adobeDataLayer, null, 2))
   });
 
 console.log("===== add to cart =====");
