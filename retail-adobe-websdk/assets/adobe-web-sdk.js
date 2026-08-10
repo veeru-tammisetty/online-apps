@@ -54,8 +54,9 @@ window.adobeDataLayer.push({
         }
     }
 });
-
- document.getElementById("checkout-form").onsubmit = function(e) {
+document
+    .getElementById("checkout-form")
+    ?.addEventListener("submit", function(event) {
         console.log("=== PURCHASE SUBMIT FIRED ===");
 
         // Stop the browser from navigating away before tracking
@@ -125,7 +126,11 @@ adobeDataLayer.push({
         },
     },
 });
- }
+
+
+        alert(JSON.stringify(window.adobeDataLayer, null, 2))
+    });
+
 
 console.log("===== add to cart =====");
 (function() {
