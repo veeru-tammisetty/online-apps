@@ -183,7 +183,7 @@ document
       },
     });
     console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
-    alert("testing purchase3");
+    alert("testing purchase4");
     alert(JSON.stringify(window.adobeDataLayer, null, 2));
   });
 
