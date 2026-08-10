@@ -42,10 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("=== PURCHASE SUBMIT FIRED ===");
 
         // Stop the browser from navigating away before tracking
-        event.preventDefault();
 
         console.log("Purchase event triggered");
-        window.adobeDataLayer = [];
+        window.adobeDataLayer = window.adobeDataLayer || [];
 
 adobeDataLayer.push({
     "event": "purchase",
@@ -108,6 +107,12 @@ adobeDataLayer.push({
         },
     },
 });
-        
+        console.log(
+  JSON.stringify(
+    window.adobeDataLayer,
+    null,
+    2
+  )
+);
     }
 });
