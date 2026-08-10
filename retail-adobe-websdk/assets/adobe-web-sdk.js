@@ -90,30 +90,6 @@ window.NOVA_ADOBE_CONFIG = {
  * ============================================================
  */
 
-alloy("configure", {
-
-  orgId: window.NOVA_ADOBE_CONFIG.orgId,
-
-  datastreamId: window.NOVA_ADOBE_CONFIG.datastreamId,
-
-  edgeDomain: window.NOVA_ADOBE_CONFIG.edgeDomain
-
-})
-.then(function () {
-
-  console.log(
-    "Adobe Web SDK configured successfully."
-  );
-
-})
-.catch(function (error) {
-
-  console.error(
-    "Adobe Web SDK configuration failed:",
-    error
-  );
-
-});
 
 
 /*
