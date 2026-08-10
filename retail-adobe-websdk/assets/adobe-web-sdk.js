@@ -72,7 +72,7 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
   console.log("Purchase event triggered");
 
   window.adobeDataLayer.push({
-    event: "purchase",
+    "event": "purchase",
     _deloitteemeanorthpartnersand: {
   customer:{
       "email":document.querySelector('#checkout-form input[name="email"]')?.value?.trim() || "",
