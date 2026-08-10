@@ -1,46 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Retail Adobe Web SDK Demo</title>
-
-  <!-- Adobe Web SDK configuration and initialization -->
-  <script src="./assets/adobe-web-sdk.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nova Retail — Home</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="https://cdn1.adoberesources.net/alloy/2.25.0/alloy.min.js" async></script>
+ <script src="./assets/adobe-web-sdk.js"></script>
 </head>
-
 <body>
-
-  <h1>Retail Application</h1>
-
-  <section>
-    <h2>Product 1</h2>
-    <p>Laptop</p>
-    <p>$1,000</p>
-
-    <button id="view-product">
-      View Product
-    </button>
-
-    <button id="add-to-cart">
-      Add to Cart
-    </button>
-  </section>
-
-  <section>
-    <h2>Product 2</h2>
-    <p>Headphones</p>
-    <p>$200</p>
-
-    <button id="view-product-2">
-      View Product
-    </button>
-
-    <button id="add-to-cart-2">
-      Add to Cart
-    </button>
-  </section>
-
-</body>
-</html>
+  <header class="site-header"><a class="logo" href="index.html">NOVA<span>RETAIL</span></a>
+    <nav><a class="active" href="index.html">Home</a><a href="shop.html">Shop</a><a href="product.html?id=aurora-lamp">Product</a><a href="cart.html">Cart <b id="cart-count">0</b></a><a href="checkout.html">Checkout</a></nav>
+  </header>
+  <main>
+    <section class="hero"><div><p class="eyebrow">NEW SEASON</p><h1>Better things for everyday living.</h1><p>Curated home, tech and lifestyle products with simple design and fast delivery.</p><a class="btn" href="shop.html" data-track="home_shop_cta">Shop the collection</a></div><div class="hero-card">NOVA<br><strong>2026</strong></div></section>
+    <section class="section"><div class="section-head"><h2>Featured</h2><a href="shop.html">View all →</a></div><div class="grid products">
+      <article class="card"><div class="product-image blue">01</div><h3>Aurora Desk Lamp</h3><p>$89.00</p><button class="btn small add-to-cart" data-product-id="aurora-lamp" data-name="Aurora Desk Lamp" data-price="89">Add to cart</button></article>
+      <article class="card"><div class="product-image sand">02</div><h3>Everyday Backpack</h3><p>$129.00</p><button class="btn small add-to-cart" data-product-id="everyday-backpack" data-name="Everyday Backpack" data-price="129">Add to cart</button></article>
+      <article class="card"><div class="product-image mint">03</div><h3>Cloud Wireless Headphones</h3><p>$199.00</p><button class="btn small add-to-cart" data-product-id="cloud-headphones" data-name="Cloud Wireless Headphones" data-price="199">Add to cart</button></article>
+    </div></section>
+  </main>
+  <footer>© 2026 Nova Retail · Demo storefront</footer>
+</body></html>
