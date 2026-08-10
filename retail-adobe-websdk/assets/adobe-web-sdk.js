@@ -133,8 +133,9 @@ window.testAdobeWebSDK = function () {
     return;
 
   }
+  console.log("Pushing to adobeDataLayer");
 window.adobeDataLayer = window.adobeDataLayer || [];
-  adobeDataLayer.push({
+adobeDataLayer.push({
 "event": "pageLoad",
 "_genpactindia": {
 "page": {
@@ -169,8 +170,7 @@ window.adobeDataLayer = window.adobeDataLayer || [];
 "URL": document.referrer
 }
 }
-})
-  .then(function (result) {
+}).then(function (result) {
 
     console.log(
       "Adobe page-view event sent successfully.",
