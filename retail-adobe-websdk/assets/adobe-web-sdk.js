@@ -120,8 +120,9 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
         URL: document.referrer
       }
     }
-  });
 
+  });
+    console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
 });
 console.log("===== add to cart =====");
 (function () {
