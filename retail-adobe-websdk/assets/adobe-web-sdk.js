@@ -102,7 +102,7 @@ document
       }
     }
   };
-   alert(JSON.stringify(purchaseData null, 2))
+   alert(purchaseData )
     window.adobeDataLayer = window.adobeDataLayer || [];
     adobeDataLayer.push({
       event: "purchase",
