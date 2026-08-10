@@ -133,7 +133,7 @@ window.testAdobeWebSDK = function () {
     return;
 
   }
-  console.log("Pushing to adobeDataLayer");
+console.log("Pushing to adobeDataLayer");
 window.adobeDataLayer = window.adobeDataLayer || [];
 adobeDataLayer.push({
 "event": "pageLoad",
@@ -169,22 +169,7 @@ adobeDataLayer.push({
 "URL": document.referrer
 }
 }
-}).then(function (result) {
-
-    console.log(
-      "Adobe page-view event sent successfully.",
-      result
-    );
-
-  })
-  .catch(function (error) {
-
-    console.error(
-      "Adobe page-view event failed:",
-      error
-    );
-
-  });
+})
 
 };
 
