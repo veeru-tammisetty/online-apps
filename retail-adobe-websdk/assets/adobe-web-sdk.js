@@ -23,9 +23,9 @@ adobeDataLayer.push({
 _deloitteemeanorthpartnersand: {
       page: {
         pageType: "",
-        pageIndustry: page?.pageIndustry || "",
-        pageBigBetTopic: page?.pageBigBetTopic || "",
-        careerSectionFlag: page?.careerSectionFlag ?? false,
+          pageIndustry: "retail",
+        pageBigBetTopic:"Products",
+        careerSectionFlag: false,
         pageLoadTime: performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
       },
 
@@ -85,9 +85,9 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
   },
       page: {
         pageType: "",
-        pageIndustry: page?.pageIndustry || "",
-        pageBigBetTopic: page?.pageBigBetTopic || "",
-        careerSectionFlag: page?.careerSectionFlag ?? false,
+        pageIndustry: "retail",
+        pageBigBetTopic:"Products",
+        careerSectionFlag: false,
         pageLoadTime: performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
       },
 
