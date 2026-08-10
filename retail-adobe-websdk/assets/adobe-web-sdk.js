@@ -65,7 +65,7 @@ document
         console.log("Purchase event triggered");
         window.adobeDataLayer = [];
 
-adobeDataLayer.push({
+window.adobeDataLayer.push({
     "event": "purchase",
     "_deloitteemeanorthpartnersand": {
         "customer": {
