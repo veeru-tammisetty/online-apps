@@ -18,11 +18,108 @@ console.log("adobeDataLayer initialized:", window.adobeDataLayer);
 
 console.log("Pushing to adobeDataLayer");
 
-window.adobeDataLayer.push({
-  event: "pageView",
-  page: {
-    name: document.title,
-    url: window.location.href
-  }
+adobeDataLayer.push({
+"event": "pageLoad",
+_deloitteemeanorthpartnersand: {
+      page: {
+        pageType: page?.pageType || "",
+        pageIndustry: page?.pageIndustry || "",
+        pageBigBetTopic: page?.pageBigBetTopic || "",
+        careerSectionFlag: page?.careerSectionFlag ?? false,
+        pageLoadTime: performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
+      },
+
+      traffic: {
+        trackingCode: new URLSearchParams(window.location.search).get("trackingCode") || "",
+        trafficSource: document.referrer || "direct",
+        utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
+        utm_medium: new URLSearchParams(window.location.search).get("utm_medium") || "",
+        utm_campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "",
+        utm_term: new URLSearchParams(window.location.search).get("utm_term") || "",
+        utm_content: new URLSearchParams(window.location.search).get("utm_content") || ""
+      },
+
+      user: {
+        locale: navigator.language || ""
+      }
+    },
+
+    web: {
+      webPageDetails: {
+        URL: document.URL,
+        name: document.title || window.location.pathname.split("/").filter(Boolean).pop() || "home",
+        server: document.domain,
+        siteSection: window.location.pathname.split("/").filter(Boolean)[0] || "home",
+        isErrorPage: document.title.toLowerCase().includes("404") || false,
+        isHomePage: window.location.pathname === "/" || window.location.pathname === ""
+      },
+
+      webReferrer: {
+        URL: document.referrer
+      }
+    }
+  
 });
 
+document.getElementById("checkout-form")?.addEventListener("submit", function (event) {
+
+  // Allow HTML5 validation to happen first
+  if (!this.checkValidity()) {
+    return;
+  }
+
+  console.log("Purchase event triggered");
+
+  window.adobeDataLayer = window.adobeDataLayer || [];
+
+  window.adobeDataLayer.push({
+    event: "purchase",
+
+    _deloitteemeanorthpartnersand: {
+  customer:{
+      "email":document.querySelector('#checkout-form input[name="email"]')?.value?.trim() || "",
+      "fullName":document.querySelector('#checkout-form input[name="name"]')?.value?.trim() || "",
+      "address":document.querySelector('#checkout-form input[name="address"]')?.value?.trim() || "",
+      "city":document.querySelector('#checkout-form input[name="City"]')?.value?.trim() || "",
+      "postcode":document.querySelector('#checkout-form input[name="postcode"]')?.value?.trim() || "",
+  },
+      page: {
+        pageType: page?.pageType || "",
+        pageIndustry: page?.pageIndustry || "",
+        pageBigBetTopic: page?.pageBigBetTopic || "",
+        careerSectionFlag: page?.careerSectionFlag ?? false,
+        pageLoadTime: performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
+      },
+
+      traffic: {
+        trackingCode: new URLSearchParams(window.location.search).get("trackingCode") || "",
+        trafficSource: document.referrer || "direct",
+        utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
+        utm_medium: new URLSearchParams(window.location.search).get("utm_medium") || "",
+        utm_campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "",
+        utm_term: new URLSearchParams(window.location.search).get("utm_term") || "",
+        utm_content: new URLSearchParams(window.location.search).get("utm_content") || ""
+      },
+
+      user: {
+        locale: navigator.language || ""
+      }
+    },
+
+    web: {
+      webPageDetails: {
+        URL: document.URL,
+        name: document.title || window.location.pathname.split("/").filter(Boolean).pop() || "home",
+        server: document.domain,
+        siteSection: window.location.pathname.split("/").filter(Boolean)[0] || "home",
+        isErrorPage: document.title.toLowerCase().includes("404") || false,
+        isHomePage: window.location.pathname === "/" || window.location.pathname === ""
+      },
+
+      webReferrer: {
+        URL: document.referrer
+      }
+    }
+  });
+
+});
