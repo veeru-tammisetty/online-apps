@@ -63,10 +63,10 @@ _deloitteemeanorthpartnersand: {
 
 document.getElementById("checkout-form")?.addEventListener("submit", function (event) {
 
-  // Allow HTML5 validation to happen first
-  if (!this.checkValidity()) {
-    return;
-  }
+  console.log("=== PURCHASE SUBMIT FIRED ===");
+
+  // Stop the browser from navigating away before tracking
+  event.preventDefault();
 
   console.log("Purchase event triggered");
 
@@ -123,6 +123,7 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
   });
 
 });
+console.log("adobeDataLayer initialized:", window.adobeDataLayer);
 console.log("===== add to cart =====");
 (function () {
 
