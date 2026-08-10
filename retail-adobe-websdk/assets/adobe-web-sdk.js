@@ -10,8 +10,8 @@
   window.adobeDataLayer = window.adobeDataLayer || [];
 
   window.NOVA_ADOBE_CONFIG = {
-    orgId: "YOUR_IMS_ORG_ID@AdobeOrg",
-    datastreamId: "YOUR_DATASTREAM_ID",
+    orgId: "1F6324765762BE0E7F000101@AdobeOrg",
+    datastreamId: "7c1168d7-ea8b-46aa-a71f-ee1280e77e6b",
     edgeDomain: "edge.adobedc.net"
   };
 
