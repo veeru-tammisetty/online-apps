@@ -124,8 +124,14 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
 
   });
     console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
-     myDataLayer = window.adobeDataLayer;
-     console.log("Purchase testing:", myDataLayer);
+    window.novaDebugDataLayer = JSON.parse(
+  JSON.stringify(window.adobeDataLayer || [])
+);
+
+console.log(
+  "=== ADOBE DATA LAYER SNAPSHOT ===",
+  window.novaDebugDataLayer
+);
 });
 
 console.log("===== add to cart =====");
