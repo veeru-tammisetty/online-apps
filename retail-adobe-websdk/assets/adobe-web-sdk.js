@@ -121,6 +121,7 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
 
   });
     console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
+    alert("testing purchase")
    alert(JSON.stringify(window.adobeDataLayer, null, 2));
 });
 
