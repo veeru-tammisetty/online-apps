@@ -103,7 +103,7 @@ document
     }
   };
    alert(JSON.stringify(purchaseData, null, 2));
-    window.adobeDataLayer = window.adobeDataLayer || [];
+    window.adobeDataLayer = [];
     adobeDataLayer.push({
       event: "purchase",
       _deloitteemeanorthpartnersand: {
@@ -183,7 +183,7 @@ document
       },
     });
     console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
-    alert("testing purchase4");
+    alert("testing purchase5");
     alert(JSON.stringify(window.adobeDataLayer, null, 2));
   });
 
