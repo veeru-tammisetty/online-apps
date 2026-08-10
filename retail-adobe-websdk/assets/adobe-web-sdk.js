@@ -9,7 +9,9 @@
  * ============================================================
  * Adobe configuration
  * ============================================================
+ * 
  */
+
 console.log("===== adobe-web-sdk.js STARTED =====");
 
 window.adobeDataLayer = window.adobeDataLayer || [];
@@ -123,7 +125,9 @@ document.getElementById("checkout-form")?.addEventListener("submit", function (e
 
   });
     console.log("adobeDataLayer purchase ingestion:", window.adobeDataLayer);
+    const myDataLayer = window.adobeDataLayer;
 });
+console.log("Data Layer:", myDataLayer);
 console.log("===== add to cart =====");
 (function () {
 
