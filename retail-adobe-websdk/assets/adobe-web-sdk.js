@@ -88,12 +88,11 @@ window.adobeDataLayer.push({
 
         "page": {
             "pageType": "",
-            "pageIndustry": "retail",
+            "pageIndustry": "retail1",
             "pageBigBetTopic": "Products",
             "careerSectionFlag": false,
-            "pageLoadTime": performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0,
+            "pageLoadTime": performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
         },
-
         "traffic": {
             "trackingCode": new URLSearchParams(window.location.search).get("trackingCode") || "",
             "trafficSource": document.referrer || "direct",
@@ -101,34 +100,31 @@ window.adobeDataLayer.push({
             "utm_medium": new URLSearchParams(window.location.search).get("utm_medium") || "",
             "utm_campaign": new URLSearchParams(window.location.search).get("utm_campaign") || "",
             "utm_term": new URLSearchParams(window.location.search).get("utm_term") || "",
-            "utm_content": new URLSearchParams(window.location.search).get("utm_content") || "",
+            "utm_content": new URLSearchParams(window.location.search).get("utm_content") || ""
         },
-
         "user": {
-            "locale": navigator.language || "",
-        },
+            "locale": navigator.language || ""
+        }
     },
-
     "web": {
         "webPageDetails": {
             "URL": document.URL,
-            "name": document.title ||
-                window.location.pathname.split("/").filter(Boolean).pop() ||
-                "home",
-            "server": "test1",
+            "name": document.title || window.location.pathname.split("/").filter(Boolean).pop() || "home",
+            "server": document.domain,
             "siteSection": window.location.pathname.split("/").filter(Boolean)[0] || "home",
             "isErrorPage": document.title.toLowerCase().includes("404") || false,
-            "isHomePage": window.location.pathname === "/" || window.location.pathname === "",
+            "isHomePage": window.location.pathname === "/" || window.location.pathname === ""
         },
-
         "webReferrer": {
-            "URL": document.referrer,
-        },
-    },
+            "URL": document.referrer
+        }
+    }
 });
 
 
         alert(JSON.stringify(window.adobeDataLayer, null, 2))
+        alert("test1")
+        console.log(JSON.stringify(window.adobeDataLayer, null, 2))
     });
 
 
