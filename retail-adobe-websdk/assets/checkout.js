@@ -1,5 +1,5 @@
 function getCart() {
-    return JSON.parse(localStorage.getItem("novaCart") || "[]")
+    return JSON.parse(localStorage.getItem("DeloitteCart") || "[]")
 }
 
 function renderCheckout() {
@@ -11,7 +11,7 @@ function renderCheckout() {
         return "<p>" + x.name + " × " + x.quantity + " — $" + (x.price * x.quantity).toFixed(2) + "</p>"
     }).join("") || "<p>Your cart is empty.</p>";
     document.getElementById("checkout-total").textContent = "$" + total.toFixed(2);
-    window.novaAdobe && novaAdobe.checkoutStart(c.map(function(x) {
+    window.DeloitteAdobe && DeloitteAdobe.checkoutStart(c.map(function(x) {
         return {
             SKU: x.id,
             name: x.name,
@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
             total = c.reduce(function(s, x) {
                 return s + x.price * x.quantity
             }, 0),
-            orderId = "NOVA-" + Date.now();
-        window.novaAdobe && novaAdobe.purchase(c.map(function(x) {
+            orderId = "Deloitte-" + Date.now();
+        window.DeloitteAdobe && DeloitteAdobe.purchase(c.map(function(x) {
             return {
                 SKU: x.id,
                 name: x.name,
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 quantity: x.quantity
             }
         }), total, orderId);
-        localStorage.removeItem("novaCart");
+        localStorage.removeItem("DeloitteCart");
         var message =
     '<div style="' +
         'position:fixed;' +
@@ -93,7 +93,7 @@ document
         return s + (x.price * x.quantity);
     }, 0);
 
-    var orderId = "NOVA-" + Date.now();
+    var orderId = "Deloitte-" + Date.now();
 
     var productListItems = c.map(function(x) {
         return {

@@ -1,9 +1,9 @@
 function getCart() {
-    return JSON.parse(localStorage.getItem("novaCart") || "[]")
+    return JSON.parse(localStorage.getItem("DeloitteCart") || "[]")
 }
 
 function saveCart(c) {
-    localStorage.setItem("novaCart", JSON.stringify(c))
+    localStorage.setItem("DeloitteCart", JSON.stringify(c))
 }
 
 function renderCart() {

@@ -1,6 +1,6 @@
 // Shared cart counter helper. Loaded automatically by pages that need it.
 function updateCartCount() {
-    var c = JSON.parse(localStorage.getItem("novaCart") || "[]");
+    var c = JSON.parse(localStorage.getItem("DeloitteCart") || "[]");
     var n = c.reduce(function(s, x) {
         return s + x.quantity
     }, 0);
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     updateCartCount();
     document.querySelectorAll(".add-to-cart").forEach(function(btn) {
         btn.addEventListener("click", function() {
-            var c = JSON.parse(localStorage.getItem("novaCart") || "[]"),
+            var c = JSON.parse(localStorage.getItem("DeloitteCart") || "[]"),
                 id = btn.dataset.productId,
                 p = {
                     id: id,
@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
             else c.push(Object.assign({
                 quantity: 1
             }, p));
-            localStorage.setItem("novaCart", JSON.stringify(c));
-            window.novaAdobe && novaAdobe.addToCart(p, 1);
+            localStorage.setItem("DeloitteCart", JSON.stringify(c));
+            window.DeloitteAdobe && DeloitteAdobe.addToCart(p, 1);
             updateCartCount();
             btn.textContent = "Added ✓";
             setTimeout(function() {

@@ -1,4 +1,4 @@
-# Nova Retail — Adobe Web SDK demo
+# Deloitte Retail — Adobe Web SDK demo
 
 A five-page responsive retail website built with HTML, CSS and JavaScript.
 
