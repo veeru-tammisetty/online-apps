@@ -14,8 +14,9 @@ console.log("===== adobe-web-sdk.js STARTED =====");
 
 window.adobeDataLayer = window.adobeDataLayer || [];
 
-adobeDataLayer.push({
+window.adobeDataLayer.push({
     "event": "pageLoad",
+
     "_deloitteemeanorthpartnersand": {
         "page": {
             "pageType": "",
@@ -60,8 +61,9 @@ document
         event.preventDefault();
 
         console.log("Purchase event triggered");
-        adobeDataLayer.push({
+        window.adobeDataLayer.push({
             "event": "purchase",
+            
             "_deloitteemeanorthpartnersand": {
                 "customer": {
                     "email": document
