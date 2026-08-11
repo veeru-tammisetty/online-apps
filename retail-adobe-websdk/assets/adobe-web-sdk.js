@@ -156,7 +156,6 @@ document
     });
 */
 
-console.log("===== add to cart =====");
 (function() {
     function productItems(items) {
         return (items || []).map(function(p) {

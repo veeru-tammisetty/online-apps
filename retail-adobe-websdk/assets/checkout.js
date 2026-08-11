@@ -66,7 +66,6 @@ document
             "currencyCode": "USD"
         };
     });
-        console.log("Purchase event triggered");
         window.adobeDataLayer.push({
             "event": "purchase",
             
@@ -95,8 +94,5 @@ document
             },
             "productListItems": productListItems
         });
-        console.log(
-    "Adobe Data Layer purchase:",
-    JSON.stringify(window.adobeDataLayer, null, 2)
-);
+
     });
