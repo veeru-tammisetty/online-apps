@@ -50,7 +50,7 @@ window.adobeDataLayer.push({
             "URL": document.referrer
         }
     }
-});
+});/*
 document
     .getElementById("checkout-form")
     ?.addEventListener("submit", function(event) {
@@ -100,7 +100,7 @@ document
                 },
                 "user": {
                     "locale": navigator.language || ""
-                }*/
+                }
             },/*
             "web": {
                 "webPageDetails": {
@@ -114,7 +114,7 @@ document
                 "webReferrer": {
                     "URL": document.referrer
                 }
-            },*/
+            },
             "purchases": {
                 "id": "Sample value",
                 "value": 30691.27
@@ -154,7 +154,7 @@ document
             }]
         });
     });
-
+*/
 
 console.log("===== add to cart =====");
 (function() {
