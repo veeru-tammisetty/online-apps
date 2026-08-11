@@ -75,7 +75,7 @@ document
                         .querySelector('#checkout-form input[name="address"]')
                         ?.value?.trim() || "",
                     "city": document
-                        .querySelector('#checkout-form input[name="City"]')
+                        .querySelector('#checkout-form input[name="city"]')
                         ?.value?.trim() || "",
                     "postcode": document
                         .querySelector('#checkout-form input[name="postcode"]')
