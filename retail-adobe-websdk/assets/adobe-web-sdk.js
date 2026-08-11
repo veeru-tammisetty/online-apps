@@ -63,7 +63,7 @@ document
         event.preventDefault();
 
         console.log("Purchase event triggered");
-        window.adobeDataLayer = [];
+       window.adobeDataLayer = window.adobeDataLayer || [];
  console.log("Test before push");
         window.adobeDataLayer.push({
             "event": "purchase",
