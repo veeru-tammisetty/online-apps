@@ -185,11 +185,5 @@ console.log("===== add to cart =====");
         var link = e.target.closest("[data-track]");
         if (!link) return;
 
-        pushToDataLayer({
-            event: "linkClick",
-            name: link.dataset.track,
-            type: "other",
-            url: link.href || location.href,
-        });
     });
 })();
