@@ -82,7 +82,7 @@ document
                         ?.value?.trim() || "",
                 },
 
-                "page": {
+                /*"page": {
                     "pageType": "",
                     "pageIndustry": "retail1",
                     "pageBigBetTopic": "Products",
@@ -100,8 +100,8 @@ document
                 },
                 "user": {
                     "locale": navigator.language || ""
-                }
-            },
+                }*/
+            },/*
             "web": {
                 "webPageDetails": {
                     "URL": document.URL,
@@ -114,7 +114,7 @@ document
                 "webReferrer": {
                     "URL": document.referrer
                 }
-            },
+            },*/
             "purchases": {
                 "id": "Sample value",
                 "value": 30691.27
