@@ -39,5 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }), total, orderId);
         localStorage.removeItem("novaCart");
         alert("Demo order placed: " + orderId);
+        location.href = "index.html"
     }
 });
