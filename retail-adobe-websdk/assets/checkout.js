@@ -39,6 +39,64 @@ document.addEventListener("DOMContentLoaded", function() {
         }), total, orderId);
         localStorage.removeItem("novaCart");
         alert("Demo order placed: " + orderId);
-        location.href = "index.html"
     }
 });
+
+document
+    .getElementById("checkout-form")
+    ?.addEventListener("submit", function(event) {
+        console.log("=== PURCHASE SUBMIT FIRED ===");
+
+        // Stop the browser from navigating away before tracking
+        event.preventDefault();
+        var c = getCart();
+
+    var total = c.reduce(function(s, x) {
+        return s + (x.price * x.quantity);
+    }, 0);
+
+    var orderId = "NOVA-" + Date.now();
+
+    var productListItems = c.map(function(x) {
+        return {
+            "SKU": x.id,
+            "name": x.name,
+            "priceTotal": x.price * x.quantity,
+            "quantity": x.quantity,
+            "currencyCode": "USD"
+        };
+    });
+        console.log("Purchase event triggered");
+        window.adobeDataLayer.push({
+            "event": "purchase",
+            
+            "_deloitteemeanorthpartnersand": {
+                "customer": {
+                    "email": document
+                        .querySelector('#checkout-form input[name="email"]')
+                        ?.value?.trim() || "",
+                    "fullName": document
+                        .querySelector('#checkout-form input[name="name"]')
+                        ?.value?.trim() || "",
+                    "address": document
+                        .querySelector('#checkout-form input[name="address"]')
+                        ?.value?.trim() || "",
+                    "city": document
+                        .querySelector('#checkout-form input[name="city"]')
+                        ?.value?.trim() || "",
+                    "postcode": document
+                        .querySelector('#checkout-form input[name="postcode"]')
+                        ?.value?.trim() || "",
+                }
+            },
+            "purchases": {
+                "id": orderId,
+                "value": total
+            },
+            "productListItems": productListItems
+        });
+        console.log(
+    "Adobe Data Layer purchase:",
+    JSON.stringify(window.adobeDataLayer, null, 2)
+);
+    });
