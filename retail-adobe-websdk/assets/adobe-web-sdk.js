@@ -118,7 +118,50 @@ window.adobeDataLayer.push({
         "webReferrer": {
             "URL": document.referrer
         }
+    },
+     "purchases": {
+      "id": "Sample value",
+      "value": 30691.27
+    },
+    "productListItems": [
+    {
+      "SKU": "Sample value",
+      "_id": "/uri-reference",
+      "currencyCode": "USD",
+      "discountAmount": 14917.88,
+      "name": "Sample value",
+      "priceTotal": 28613.41,
+      "product": "https://ns.adobe.com/xdm/common/uri",
+      "productAddMethod": "Sample value",
+      "productCategories": [
+        {
+          "categoryID": "Sample value",
+          "categoryName": "Sample value",
+          "categoryPath": "Sample value"
+        }
+      ],
+      "productImageUrl": "Sample value",
+      "quantity": 32440,
+      "refundAmount": 5750.85,
+      "returnItem": {
+        "returnItemCondition": "Sample value",
+        "returnQuantityApproved": 5576,
+        "returnQuantityAuthorized": 6711,
+        "returnQuantityReceived": 11406,
+        "returnQuantityRequested": 28828,
+        "returnReason": "Sample value",
+        "returnResolution": "Sample value",
+        "returnStatus": "Sample value"
+      },
+      "selectedOptions": [
+        {
+          "attribute": "Sample value",
+          "value": "Sample value"
+        }
+      ],
+      "unitOfMeasureCode": "Sample value"
     }
+  ]
 });
 
 
