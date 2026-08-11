@@ -153,8 +153,6 @@ document
                 "unitOfMeasureCode": "Sample value"
             }]
         });
-
-        console.log(JSON.stringify(window.adobeDataLayer, null, 2))
     });
 
 
