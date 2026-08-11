@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.body.insertAdjacentHTML("beforeend", message);
        setTimeout(function() {
     location.href = "index.html";
-}, 1500);
+}, 1900);
     }
 });
 
