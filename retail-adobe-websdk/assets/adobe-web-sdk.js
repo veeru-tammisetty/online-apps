@@ -64,109 +64,100 @@ document
 
         console.log("Purchase event triggered");
         window.adobeDataLayer = [];
+ console.log("Test before push");
+        window.adobeDataLayer.push({
+            "event": "purchase",
+            "_deloitteemeanorthpartnersand": {
+                "customer": {
+                    "email": document
+                        .querySelector('#checkout-form input[name="email"]')
+                        ?.value?.trim() || "",
+                    "fullName": document
+                        .querySelector('#checkout-form input[name="name"]')
+                        ?.value?.trim() || "",
+                    "address": document
+                        .querySelector('#checkout-form input[name="address"]')
+                        ?.value?.trim() || "",
+                    "city": document
+                        .querySelector('#checkout-form input[name="City"]')
+                        ?.value?.trim() || "",
+                    "postcode": document
+                        .querySelector('#checkout-form input[name="postcode"]')
+                        ?.value?.trim() || "",
+                },
 
-window.adobeDataLayer.push({
-    "event": "purchase",
-    "_deloitteemeanorthpartnersand": {
-        "customer": {
-            "email": document
-                .querySelector('#checkout-form input[name="email"]')
-                ?.value?.trim() || "",
-            "fullName": document
-                .querySelector('#checkout-form input[name="name"]')
-                ?.value?.trim() || "",
-            "address": document
-                .querySelector('#checkout-form input[name="address"]')
-                ?.value?.trim() || "",
-            "city": document
-                .querySelector('#checkout-form input[name="City"]')
-                ?.value?.trim() || "",
-            "postcode": document
-                .querySelector('#checkout-form input[name="postcode"]')
-                ?.value?.trim() || "",
-        },
+                "page": {
+                    "pageType": "",
+                    "pageIndustry": "retail1",
+                    "pageBigBetTopic": "Products",
+                    "careerSectionFlag": false,
+                    "pageLoadTime": performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
+                },
+                "traffic": {
+                    "trackingCode": new URLSearchParams(window.location.search).get("trackingCode") || "",
+                    "trafficSource": document.referrer || "direct",
+                    "utm_source": new URLSearchParams(window.location.search).get("utm_source") || "",
+                    "utm_medium": new URLSearchParams(window.location.search).get("utm_medium") || "",
+                    "utm_campaign": new URLSearchParams(window.location.search).get("utm_campaign") || "",
+                    "utm_term": new URLSearchParams(window.location.search).get("utm_term") || "",
+                    "utm_content": new URLSearchParams(window.location.search).get("utm_content") || ""
+                },
+                "user": {
+                    "locale": navigator.language || ""
+                }
+            },
+            "web": {
+                "webPageDetails": {
+                    "URL": document.URL,
+                    "name": document.title || window.location.pathname.split("/").filter(Boolean).pop() || "home",
+                    "server": document.domain,
+                    "siteSection": window.location.pathname.split("/").filter(Boolean)[0] || "home",
+                    "isErrorPage": document.title.toLowerCase().includes("404") || false,
+                    "isHomePage": window.location.pathname === "/" || window.location.pathname === ""
+                },
+                "webReferrer": {
+                    "URL": document.referrer
+                }
+            },
+            "purchases": {
+                "id": "Sample value",
+                "value": 30691.27
+            },
+            "productListItems": [{
+                "SKU": "Sample value",
+                "_id": "/uri-reference",
+                "currencyCode": "USD",
+                "discountAmount": 14917.88,
+                "name": "Sample value",
+                "priceTotal": 28613.41,
+                "product": "https://ns.adobe.com/xdm/common/uri",
+                "productAddMethod": "Sample value",
+                "productCategories": [{
+                    "categoryID": "Sample value",
+                    "categoryName": "Sample value",
+                    "categoryPath": "Sample value"
+                }],
+                "productImageUrl": "Sample value",
+                "quantity": 32440,
+                "refundAmount": 5750.85,
+                "returnItem": {
+                    "returnItemCondition": "Sample value",
+                    "returnQuantityApproved": 5576,
+                    "returnQuantityAuthorized": 6711,
+                    "returnQuantityReceived": 11406,
+                    "returnQuantityRequested": 28828,
+                    "returnReason": "Sample value",
+                    "returnResolution": "Sample value",
+                    "returnStatus": "Sample value"
+                },
+                "selectedOptions": [{
+                    "attribute": "Sample value",
+                    "value": "Sample value"
+                }],
+                "unitOfMeasureCode": "Sample value"
+            }]
+        });
 
-        "page": {
-            "pageType": "",
-            "pageIndustry": "retail1",
-            "pageBigBetTopic": "Products",
-            "careerSectionFlag": false,
-            "pageLoadTime": performance.getEntriesByType("navigation")[0]?.loadEventEnd || 0
-        },
-        "traffic": {
-            "trackingCode": new URLSearchParams(window.location.search).get("trackingCode") || "",
-            "trafficSource": document.referrer || "direct",
-            "utm_source": new URLSearchParams(window.location.search).get("utm_source") || "",
-            "utm_medium": new URLSearchParams(window.location.search).get("utm_medium") || "",
-            "utm_campaign": new URLSearchParams(window.location.search).get("utm_campaign") || "",
-            "utm_term": new URLSearchParams(window.location.search).get("utm_term") || "",
-            "utm_content": new URLSearchParams(window.location.search).get("utm_content") || ""
-        },
-        "user": {
-            "locale": navigator.language || ""
-        }
-    },
-    "web": {
-        "webPageDetails": {
-            "URL": document.URL,
-            "name": document.title || window.location.pathname.split("/").filter(Boolean).pop() || "home",
-            "server": document.domain,
-            "siteSection": window.location.pathname.split("/").filter(Boolean)[0] || "home",
-            "isErrorPage": document.title.toLowerCase().includes("404") || false,
-            "isHomePage": window.location.pathname === "/" || window.location.pathname === ""
-        },
-        "webReferrer": {
-            "URL": document.referrer
-        }
-    },
-     "purchases": {
-      "id": "Sample value",
-      "value": 30691.27
-    },
-    "productListItems": [
-    {
-      "SKU": "Sample value",
-      "_id": "/uri-reference",
-      "currencyCode": "USD",
-      "discountAmount": 14917.88,
-      "name": "Sample value",
-      "priceTotal": 28613.41,
-      "product": "https://ns.adobe.com/xdm/common/uri",
-      "productAddMethod": "Sample value",
-      "productCategories": [
-        {
-          "categoryID": "Sample value",
-          "categoryName": "Sample value",
-          "categoryPath": "Sample value"
-        }
-      ],
-      "productImageUrl": "Sample value",
-      "quantity": 32440,
-      "refundAmount": 5750.85,
-      "returnItem": {
-        "returnItemCondition": "Sample value",
-        "returnQuantityApproved": 5576,
-        "returnQuantityAuthorized": 6711,
-        "returnQuantityReceived": 11406,
-        "returnQuantityRequested": 28828,
-        "returnReason": "Sample value",
-        "returnResolution": "Sample value",
-        "returnStatus": "Sample value"
-      },
-      "selectedOptions": [
-        {
-          "attribute": "Sample value",
-          "value": "Sample value"
-        }
-      ],
-      "unitOfMeasureCode": "Sample value"
-    }
-  ]
-});
-
-
-        alert(JSON.stringify(window.adobeDataLayer, null, 2))
-        alert("test1")
         console.log(JSON.stringify(window.adobeDataLayer, null, 2))
     });
 
