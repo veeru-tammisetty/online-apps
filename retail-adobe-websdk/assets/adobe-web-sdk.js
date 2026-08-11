@@ -159,6 +159,13 @@ document
         });
 
         console.log(JSON.stringify(window.adobeDataLayer, null, 2))
+        window.adobeDataLayer
+    .filter(function (item) {
+        return item.event === "purchase";
+    })
+    .forEach(function (item) {
+        console.log("PURCHASE EVENT FOUND:", item);
+    });
     });
 
 
