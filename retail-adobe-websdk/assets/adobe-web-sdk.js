@@ -13,9 +13,6 @@
 console.log("===== adobe-web-sdk.js STARTED =====");
 
 window.adobeDataLayer = window.adobeDataLayer || [];
-console.log("adobeDataLayer initialized:", window.adobeDataLayer);
-
-console.log("Pushing to adobeDataLayer");
 
 window.adobeDataLayer.push({
     "event": "pageLoad",
@@ -63,8 +60,6 @@ document
         event.preventDefault();
 
         console.log("Purchase event triggered");
-       window.adobeDataLayer = window.adobeDataLayer || [];
- console.log("Test before push");
         window.adobeDataLayer.push({
             "event": "purchase",
             "_deloitteemeanorthpartnersand": {
@@ -159,13 +154,6 @@ document
         });
 
         console.log(JSON.stringify(window.adobeDataLayer, null, 2))
-        window.adobeDataLayer
-    .filter(function (item) {
-        return item.event === "purchase";
-    })
-    .forEach(function (item) {
-        console.log("PURCHASE EVENT FOUND:", item);
-    });
     });
 
 
