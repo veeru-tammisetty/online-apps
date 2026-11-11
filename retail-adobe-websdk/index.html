@@ -34,6 +34,20 @@
       version: "1.0.0",
       language: "en-US",
       namespace: "brand-concierge"
+    },
+    behavior: {
+      input: { enableVoiceInput: false },
+      chat: { messageAlignment: "left", messageWidth: "80%" },
+      chatTranscript: {
+        enabled: true,
+        maxSessions: 1,
+        maxMessagesPerSession: 20,
+        cleanupInterval: 24
+      },
+      disclaimer: { attachWithInput: true }
+    },
+    disclaimer: {
+      text: "AI responses may be inaccurate or misleading. Be sure to double check answers and sources."
     }
   };
 
