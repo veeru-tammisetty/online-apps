@@ -54,7 +54,7 @@
     });
 
     // Fire an event and log whether the Edge serves the concierge
-    alloy("sendEvent", {}).then(function (r) {
+    alloy("sendEvent", { renderDecisions: true }).then(function (r) {
       console.log("[concierge-test] propositions:", r.propositions);
       if (!r.propositions || r.propositions.length === 0) {
         console.warn("[concierge-test] EMPTY propositions -> surface configuration is NOT serving this domain yet.");
