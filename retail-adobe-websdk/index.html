@@ -28,35 +28,6 @@
   </main>
   <footer>© 2026 Deloitte Retail · Demo storefront</footer>
   <script>
-  // Register a dedicated Web SDK instance "bcAlloy" for Brand Concierge
-  (function (n, o) {
-    o.forEach(function (name) {
-      n[name] ||
-        ((n.__alloyNS = n.__alloyNS || []).push(name),
-        (n[name] = function () {
-          var args = arguments;
-          return new Promise(function (resolve, reject) {
-            n[name].q.push([resolve, reject, args]);
-          });
-        }),
-        (n[name].q = []));
-    });
-  })(window, ["bcAlloy"]);
-</script>
-<script src="https://cdn1.adoberesources.net/alloy/2.31.1/alloy.min.js"></script>
-<script>
-  bcAlloy("configure", {
-    defaultConsent: "in",
-    edgeDomain: "edge.adobedc.net",
-    edgeBasePath: "ee",
-    datastreamId: "7c1168d7-ea8b-46aa-a71f-ee1280e77e6b",
-    orgId: "1F6324765762BE0E7F000101@AdobeOrg",
-    debugEnabled: true,
-    idMigrationEnabled: false,
-    thirdPartyCookiesEnabled: false,
-    prehidingStyle: ".personalization-container { opacity: 0 !important }"
-  });
-
   window.styleConfigurations = {
     metadata: {
       brandName: "Deloitte Retail POC",
@@ -67,7 +38,7 @@
   };
 
   window.adobe.concierge.bootstrap({
-    instanceName: "bcAlloy",
+    instanceName: "alloy",
     stylingConfigurations: window.styleConfigurations,
     selector: "#brand-concierge-mount"
   });
