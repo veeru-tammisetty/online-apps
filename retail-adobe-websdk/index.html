@@ -51,11 +51,12 @@
     }
   };
 
-  window.adobe.concierge.bootstrap({
-    instanceName: "alloy",
-    stylingConfigurations: window.styleConfigurations,
-    selector: "#brand-concierge-mount"
-  });
+ window.alloy("configure", { conversation: { region: "aus3" } });
+window.adobe.concierge.bootstrap({
+  instanceName: "alloy",
+  stylingConfigurations: window.styleConfigurations,
+  selector: "#brand-concierge-mount"
+});
 </script>
 </body>
       
