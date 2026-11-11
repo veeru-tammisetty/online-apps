@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Brand Concierge — Standalone Test</title>
+  <title>Brand Concierge — Deloitte Retail</title>
   <style>
     html, body { margin: 0; padding: 0; height: 100%; font-family: system-ui, Arial, sans-serif; background: #f5f5f5; }
     .wrap { max-width: 480px; margin: 0 auto; padding: 24px 16px; }
@@ -66,18 +66,306 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Brand Concierge — Standalone Test Page</h1>
+    <h1>Brand Concierge — Deloitte Retail</h1>
     <div id="brand-concierge-mount"></div>
   </div>
 
-  <!-- Mount the concierge -->
+  <!-- Mount the concierge with the FULL styling configuration -->
   <script>
     window.styleConfigurations = {
-      metadata: {
-        brandName: "Deloitte Retail POC",
-        version: "1.0.0",
-        language: "en-US",
-        namespace: "brand-concierge"
+      "metadata": {
+        "brandName": "DELOITTE",
+        "version": "1.0.0",
+        "language": "en",
+        "namespace": "brand-concierge"
+      },
+      "behavior": {
+        "multimodalCarousel": {
+          "cardClickAction": "openLink"
+        },
+        "input": {
+          "enableVoiceInput": false,
+          "continuousVoiceMode": false,
+          "disableMultiline": true,
+          "showAiChatIcon": {
+            "icon": ""
+          }
+        },
+        "chat": {
+          "messageAlignment": "normal",
+          "messageWidth": "100%"
+        },
+        "privacyNotice": {
+          "title": "Privacy Notice",
+          "text": "Your use of this automated chatbot constitutes your consent that the personal information you provide in the chat session can be collected, used, disclosed, and retained by YourBrand and service providers acting on YourBrand's behalf in accordance with the YourBrand {Privacy Policy}. Please do not provide sensitive personal information (such as financial or health information) in the chatbot.",
+          "links": [
+            {
+              "text": "Privacy Policy",
+              "url": "<your-privacy-policy-url>"
+            }
+          ]
+        },
+        "meetingForm": {
+          "fieldsPerRow": 2,
+          "fieldLayoutRules": {
+            "textInputs": {
+              "allowTwoColumns": true,
+              "fieldTypes": ["string", "email", "tel", "number"],
+              "identifyBy": null
+            },
+            "dropdowns": {
+              "allowTwoColumns": false,
+              "fieldTypes": ["select"],
+              "identifyBy": "hasOptions"
+            },
+            "checkboxes": {
+              "allowTwoColumns": false,
+              "fieldTypes": ["boolean", "checkbox"],
+              "identifyBy": null
+            }
+          },
+          "title": {
+            "text": "Schedule a Meeting",
+            "alignment": "left"
+          },
+          "subtitle": {
+            "text": "Connect with Deloitte Retail experts.",
+            "alignment": "left"
+          },
+          "buttons": {
+            "submit": {
+              "text": "Submit",
+              "alignment": "left"
+            },
+            "cancel": {
+              "text": "Cancel",
+              "alignment": "left"
+            }
+          }
+        },
+        "calendarWidget": {
+          "title": {
+            "text": "Pick a Date and Time",
+            "alignment": "left"
+          },
+          "subtitle": {
+            "text": "Select a convenient time for your meeting.",
+            "alignment": "left"
+          },
+          "postTitle": {
+            "text": "Once confirmed, you will receive a calendar invite with all the details. The specialist will already have this conversation context, so no need to repeat anything. Looking forward to connecting you with the right expert!",
+            "alignment": "left"
+          },
+          "buttons": {
+            "confirm": {
+              "text": "Confirm",
+              "alignment": "left"
+            },
+            "cancel": {
+              "text": "Cancel",
+              "alignment": "left"
+            }
+          }
+        },
+        "productCard": {
+          "actionButtonSize": "S"
+        },
+        "b2bLiveChat": {
+          "enabled": true
+        }
+      },
+      "disclaimer": {
+        "text": "© 2026 DELOITTE. All rights reserved.",
+        "links": [
+          {
+            "text": "Terms of Use",
+            "url": "https://veeru-tammisetty.github.io/online-apps/retail-adobe-websdk/"
+          }
+        ]
+      },
+      "text": {
+        "welcome.heading": "Welcome to Deloitte Retail",
+        "welcome.subheading": "Discover curated products for everyday living.",
+        "input.placeholder": "Ask about our latest collection",
+        "input.messageInput.aria": "Type your message",
+        "input.send.aria": "Send message",
+        "input.aiChatIcon.tooltip": "Chat with Deloitte Retail",
+        "input.mic.aria": "Use voice input",
+        "card.aria.select": "Select this option",
+        "carousel.prev.aria": "Previous",
+        "carousel.next.aria": "Next",
+        "scroll.bottom.aria": "Scroll to bottom",
+        "error.network": "Network error. Please try again.",
+        "loading.message": "Loading...",
+        "feedback.dialog.title.positive": "Positive Feedback",
+        "feedback.dialog.title.negative": "Negative Feedback",
+        "feedback.dialog.question.positive": "What did you enjoy?",
+        "feedback.dialog.question.negative": "What could be better?",
+        "feedback.dialog.notes": "Additional comments",
+        "feedback.dialog.submit": "Submit",
+        "feedback.dialog.cancel": "Cancel",
+        "feedback.dialog.notes.placeholder": "Type your comments here",
+        "feedback.toast.success": "Thank you for your feedback!",
+        "feedback.thumbsUp.aria": "Thumbs up",
+        "feedback.thumbsDown.aria": "Thumbs down",
+        "feedback.title": "Share your feedback",
+        "feedback.positive.title": "What did you like?",
+        "feedback.negative.title": "What could be improved?",
+        "feedback.submitButton": "Submit Feedback"
+      },
+      "arrays": {
+        "welcome.examples": [
+          {
+            "text": "Explore our latest collection",
+            "systemPrompt": "Show me the latest collection from Deloitte Retail.",
+            "backgroundColor": "#17201d",
+            "imageIndex": null,
+            "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNDAnIGhlaWdodD0nMTYwJz48ZGVmcz48cGF0dGVybiBpZD0nZG90cycgd2lkdGg9JzE2JyBoZWlnaHQ9JzE2JyBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJz48Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMS41JyBmaWxsPScjZDlkOWQ5Jy8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0nMjQwJyBoZWlnaHQ9JzE2MCcgZmlsbD0nI2Y0ZjRmNCcvPjxyZWN0IHdpZHRoPScyNDAnIGhlaWdodD0nMTYwJyBmaWxsPSd1cmwoI2RvdHMpJy8+PC9zdmc+"
+          },
+          {
+            "text": "Find the perfect gift",
+            "systemPrompt": "What are some great gift ideas from Deloitte Retail?",
+            "backgroundColor": "#3a413f",
+            "imageIndex": null,
+            "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNDAnIGhlaWdodD0nMTYwJz48ZGVmcz48cGF0dGVybiBpZD0nZG90cycgd2lkdGg9JzE2JyBoZWlnaHQ9JzE2JyBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJz48Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMS41JyBmaWxsPScjZDlkOWQ5Jy8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0nMjQwJyBoZWlnaHQ9JzE2MCcgZmlsbD0nI2Y0ZjRmNCcvPjxyZWN0IHdpZHRoPScyNDAnIGhlaWdodD0nMTYwJyBmaWxsPSd1cmwoI2RvdHMpJy8+PC9zdmc+"
+          },
+          {
+            "text": "Shop home essentials",
+            "systemPrompt": "Show me home essentials available at Deloitte Retail.",
+            "backgroundColor": "#5d6361",
+            "imageIndex": null,
+            "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNDAnIGhlaWdodD0nMTYwJz48ZGVmcz48cGF0dGVybiBpZD0nZG90cycgd2lkdGg9JzE2JyBoZWlnaHQ9JzE2JyBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJz48Y2lyY2xlIGN4PScyJyBjeT0nMicgcj0nMS41JyBmaWxsPScjZDlkOWQ5Jy8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0nMjQwJyBoZWlnaHQ9JzE2MCcgZmlsbD0nI2Y0ZjRmNCcvPjxyZWN0IHdpZHRoPScyNDAnIGhlaWdodD0nMTYwJyBmaWxsPSd1cmwoI2RvdHMpJy8+PC9zdmc+"
+          }
+        ],
+        "feedback.positive.options": [
+          "Great product selection",
+          "Easy navigation",
+          "Fast delivery",
+          "Helpful customer support",
+          "Other"
+        ],
+        "feedback.negative.options": [
+          "Limited product variety",
+          "Difficult navigation",
+          "Slow delivery",
+          "Unhelpful customer support",
+          "Other"
+        ]
+      },
+      "assets": {
+        "icons": {
+          "company": "https://veeru-tammisetty.github.io/online-apps/retail-adobe-websdk/logo.png"
+        }
+      },
+      "visualProfile": {
+        "sendIconIconColor": "#ffffff",
+        "sendIconBackgroundColor": "#522752"
+      },
+      "theme": {
+        "--welcome-input-order": "3",
+        "--welcome-cards-order": "2",
+        "--welcome-heading-size-desktop": "2.5rem",
+        "--welcome-heading-size-mobile": "2rem",
+        "--welcome-heading-weight": "700",
+        "--welcome-heading-text-align": "left",
+        "--welcome-subheading-size-desktop": "1.25rem",
+        "--welcome-subheading-size-mobile": "1rem",
+        "--welcome-subheading-text-align": "left",
+        "--welcome-padding": "2rem",
+        "--prompt-suggestion-background": "#522752",
+        "--prompt-suggestion-background-hover": "#522752",
+        "--prompt-suggestion-text-color": "#522752",
+        "--prompt-suggestion-border-color": "#522752",
+        "--font-family": "Arial, sans-serif",
+        "--color-primary": "#17201d",
+        "--color-text": "#522752",
+        "--line-height-body": "1.6",
+        "--main-container-background": "#f8f8f5",
+        "--input-height": "48px",
+        "--input-height-mobile": "40px",
+        "--input-border-radius": "8px",
+        "--input-border-radius-mobile": "6px",
+        "--input-background": "#ffffff",
+        "--input-outline-color": "#d6d6ce",
+        "--input-outline-width": "1px",
+        "--input-box-shadow": "0 2px 4px rgba(0, 0, 0, 0.1)",
+        "--input-focus-outline-width": "2px",
+        "--input-focus-outline-color": "#17201d",
+        "--input-font-size": "1rem",
+        "--input-font-weight": "400",
+        "--input-text-color": "#17201d",
+        "--input-button-height": "36px",
+        "--input-button-width": "36px",
+        "--submit-button-fill-color": "#ffffff",
+        "--submit-button-fill-color-disabled": "#CCCCCC",
+        "--color-button-submit": "#17201d",
+        "--color-button-submit-hover": "#522752",
+        "--input-button-border-radius": "8px",
+        "--button-disabled-background": "#F0F0F0",
+        "--disclaimer-color": "#6c757d",
+        "--disclaimer-font-size": "0.875rem",
+        "--disclaimer-font-weight": "400",
+        "--message-user-background": "#17201d",
+        "--message-user-text": "#ffffff",
+        "--message-border-radius": "8px",
+        "--message-padding": "1rem",
+        "--message-concierge-background": "#f3f3f3",
+        "--message-concierge-text": "#000000",
+        "--message-max-width": "100%",
+        "--chat-interface-max-width": "768px",
+        "--message-blocker-height": "48px",
+        "--loading-message-background": "#d6d6ce",
+        "--loading-dot-background": "#60605d",
+        "--color-text-muted": "#60605d",
+        "--citations-text-font-weight": "400",
+        "--citations-desktop-button-font-size": "0.875rem",
+        "--feedback-icon-btn-background": "#dce7e2",
+        "--feedback-icon-btn-hover-background": "#dce7f1",
+        "--feedback-icon-btn-size-desktop": "40px",
+        "--feedback-container-gap": "1rem",
+        "--multimodal-card-box-shadow": "0 2px 4px rgba(0, 0, 0, 0.1)",
+        "--border-radius-card": "8px",
+        "--button-height-s": "36px",
+        "--button-primary-background": "#17201d",
+        "--button-primary-text": "#ffffff",
+        "--button-primary-hover": "#522752",
+        "--button-secondary-border": "1px solid #dce7e2",
+        "--button-secondary-text": "#17201d",
+        "--button-secondary-hover": "#dce7e2",
+        "--color-button-secondary-hover-text": "#17201d",
+        "--privacy-notice-background": "#f8f8f5",
+        "--privacy-notice-padding": "1rem",
+        "--privacy-notice-title-color": "#60605d",
+        "--privacy-notice-text-color": "#60605d",
+        "--privacy-notice-text-font-size": "0.875rem",
+        "--privacy-notice-title-font-size": "1rem",
+        "--message-concierge-link-decoration": "underline",
+        "--color-secondary": "#dce7e2",
+        "--prompt-suggestion-button-background": "#d6d6ce",
+        "--prompt-pill-background": "#dce7e2",
+        "--button-primary-mobile-background": "#522752",
+        "--button-primary-mobile-hover": "#522752",
+        "--main-container-mobile-background": "#f8f8f5",
+        "--message-concierge-border-width": "1px",
+        "--message-concierge-link-color": "#17201d",
+        "--prompt-suggestion-button-border-radius": "8px",
+        "--prompt-suggestion-button-padding": "0.5rem 1rem",
+        "--prompt-suggestions-container-gap": "0.5rem",
+        "--card-background": "#dce7e2",
+        "--card-text-font-size": "1rem",
+        "--card-text-padding": "1rem",
+        "--chat-container-background": "#f8f8f5",
+        "--message-blocker-background": "#f8f8f5",
+        "--card-text-color": "#ffffff",
+        "--prompt-pill-border-color": "#dce7e2",
+        "--prompt-pill-text-color": "#000000",
+        "--prompt-suggestion-button-text-color": "#60605d",
+        "--prompt-suggestion-button-background-hover": "#d6d6ce",
+        "--welcome-heading-text-color": "#000000",
+        "--welcome-subheading-text-color": "#000000",
+        "--welcome-header-order": "1",
+        "--prompt-suggestions-flex-direction": "row",
+        "--prompt-suggestions-flex-wrap": "wrap"
       }
     };
 
