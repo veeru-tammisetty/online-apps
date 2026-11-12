@@ -387,7 +387,9 @@
         "--prompt-suggestions-flex-wrap": "wrap"
       }
     };
-
+    identifyUser("veeru.test1@gmail.com")
+  .then(function(result) {
+    console.log("Identity established", result);
     window.adobe.concierge.bootstrap({
       instanceName: "alloy",
       stylingConfigurations: window.styleConfigurations,
