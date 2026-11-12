@@ -59,6 +59,7 @@
     });
 
     // STEP 1 (shared): identify by email on login + STEP 2 (Pattern 1): read audience decisions
+    var email="veer@gmail.com"
     window.identifyUser = function (email) {
       return alloy("sendEvent", {
         renderDecisions: true,
