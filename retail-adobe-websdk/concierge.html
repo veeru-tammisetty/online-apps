@@ -65,9 +65,20 @@
     });
 
      // Anonymous page view (before login)
-    alloy("sendEvent", { renderDecisions: true }).then(function (r) {
-      console.log("[anon] decisions:", r.decisions, "propositions:", r.propositions);
-    });
+    // alloy("sendEvent", { renderDecisions: true }).then(function (r) {
+    //   console.log("[anon] decisions:", r.decisions, "propositions:", r.propositions);
+    // });
+    alloy("sendEvent", {
+  "xdm": {
+    "identityMap": {
+      "Email": [{
+        "id": "veeru.test1@gmail.com",
+        "authenticatedState": "authenticated",
+        "primary": false
+      }]
+    }
+  }
+});
 
   </script>
 </head>
