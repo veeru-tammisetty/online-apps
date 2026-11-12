@@ -394,7 +394,10 @@
       instanceName: "alloy",
       stylingConfigurations: window.styleConfigurations,
       selector: "#brand-concierge-mount"
-    });
+    });})
+  .catch(function(error) {
+    console.error("Identity failed", error);
+  });
   </script>
 </body>
 </html>
