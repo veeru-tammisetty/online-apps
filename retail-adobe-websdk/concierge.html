@@ -53,20 +53,42 @@
       conversation: { region: "va7" }
     });
 
-    // Fire an event and log whether the Edge serves the concierge
+     // Anonymous page view (before login)
     alloy("sendEvent", { renderDecisions: true }).then(function (r) {
-      console.log("[concierge-test] propositions:", r.propositions);
-      if (!r.propositions || r.propositions.length === 0) {
-        console.warn("[concierge-test] EMPTY propositions -> surface configuration is NOT serving this domain yet.");
-      } else {
-        console.log("[concierge-test] Concierge payload received -> UI should render.");
-      }
+      console.log("[anon] decisions:", r.decisions, "propositions:", r.propositions);
     });
+
+    // STEP 1 (shared): identify by email on login + STEP 2 (Pattern 1): read audience decisions
+    window.identifyUser = function (email) {
+      return alloy("sendEvent", {
+        renderDecisions: true,
+        xdm: {
+          identityMap: {
+            // Use "Email" (plaintext) or your hashed-email namespace per your governance policy
+            "Email": [
+              { id: String(email).trim().toLowerCase(), primary: true, authenticatedState: "authenticated" }
+            ]
+          }
+        }
+      }).then(function (r) {
+        // Pattern 1 output: audience memberships / decisions for the identified profile
+        console.log("[known] decisions:", r.decisions);
+        console.log("[known] propositions:", r.propositions);
+        // Branch concierge behavior on membership here if needed, e.g. set a flag the skill reads
+        window.__bcAudiences = r.propositions || [];
+        return r;
+      });
+    };
   </script>
 </head>
 <body>
   <div class="wrap">
     <h1>Brand Concierge — Deloitte Retail</h1>
+      <div class="wrap">
+    <div id="login">
+      <input id="email" type="email" placeholder="you@example.com">
+      <button onclick="identifyUser(document.getElementById('email').value)">Log in</button>
+    </div>
     <div id="brand-concierge-mount"></div>
   </div>
 
