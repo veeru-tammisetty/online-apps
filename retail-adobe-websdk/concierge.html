@@ -59,7 +59,7 @@
     });
 
     // STEP 1 (shared): identify by email on login + STEP 2 (Pattern 1): read audience decisions
-    var email="veer@gmail.com"
+    var email="veeru.test1@gmail.com"
     window.identifyUser = function (email) {
       return alloy("sendEvent", {
         renderDecisions: true,
@@ -67,7 +67,7 @@
           identityMap: {
             // Use "Email" (plaintext) or your hashed-email namespace per your governance policy
             "Email": [
-              { id: String(email).trim().toLowerCase(), primary: true, authenticatedState: "authenticated" }
+              { id: String("veeru.test1@gmail.com").trim().toLowerCase(), primary: true, authenticatedState: "authenticated" }
             ]
           }
         }
