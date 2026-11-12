@@ -20,7 +20,7 @@
   </style>
 
   <!-- Brand Concierge Web Client -->
-  <script src="https://experience.adobe.net/solutions/experience-platform-brand-concierge-web-agent/static-assets/main.js"></script>
+<script src="https://experience.adobe.net/solutions/experience-platform-brand-concierge-web-agent/static-assets/main.js"></script>
 
   <!-- Single Web SDK (alloy) loader -->
   <script>
@@ -50,6 +50,17 @@
       idMigrationEnabled: false,
       thirdPartyCookiesEnabled: false,
       prehidingStyle: ".personalization-container { opacity: 0 !important }",
+      onBeforeEventSend: (options) => {
+    const x = options.xdm;
+    const params = new URLSearchParams(window.location.search);
+    const titleParam = params.get("title");
+    if (titleParam) {
+      x.web.webPageDetails.name = titleParam;
+    } else {
+      x.web.webPageDetails.name = "default-page";
+    }
+    return true;
+  },
       conversation: { region: "va7" }
     });
 
@@ -58,28 +69,6 @@
       console.log("[anon] decisions:", r.decisions, "propositions:", r.propositions);
     });
 
-    // STEP 1 (shared): identify by email on login + STEP 2 (Pattern 1): read audience decisions
-    var email="veeru.test1@gmail.com"
-    window.identifyUser = function (email) {
-      return alloy("sendEvent", {
-        renderDecisions: true,
-        xdm: {
-          identityMap: {
-            // Use "Email" (plaintext) or your hashed-email namespace per your governance policy
-            "Email": [
-              { id: String("veeru.test1@gmail.com").trim().toLowerCase(), primary: true, authenticatedState: "authenticated" }
-            ]
-          }
-        }
-      }).then(function (r) {
-        // Pattern 1 output: audience memberships / decisions for the identified profile
-        console.log("[known] decisions:", r.decisions);
-        console.log("[known] propositions:", r.propositions);
-        // Branch concierge behavior on membership here if needed, e.g. set a flag the skill reads
-        window.__bcAudiences = r.propositions || [];
-        return r;
-      });
-    };
   </script>
 </head>
 <body>
@@ -387,17 +376,14 @@
         "--prompt-suggestions-flex-wrap": "wrap"
       }
     };
-    identifyUser("veeru.test1@gmail.com")
-  .then(function(result) {
-    console.log("Identity established", result);
     window.adobe.concierge.bootstrap({
       instanceName: "alloy",
       stylingConfigurations: window.styleConfigurations,
-      selector: "#brand-concierge-mount"
-    });})
-  .catch(function(error) {
-    console.error("Identity failed", error);
-  });
+      selector: "#brand-concierge-mount",
+      onEvent: (event) => {
+    console.log(event.eventType, event.timestamp, event.data);
+  }
+    });
   </script>
 </body>
 </html>
